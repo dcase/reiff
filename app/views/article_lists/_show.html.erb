@@ -1,7 +1,9 @@
-<% if authorized? %>
+<% if super_authorized? %>
 	<%= link_to( image_tag("fail.png", :size => "16x16"), @article_list, { :title => "Delete", :class => "ajax-delete" }) %>
 	<%= link_to( 'delete article list', @article_list, { :title => "Delete", :class => "ajax-delete" }) %>
 	<br />
+<% end %>
+<% if authorized? %>
 	<%= link_to( image_tag("pencil.png", :size => "16x16"), edit_article_list_path(@article_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s}) %>
 	<%= link_to( 'edit article list', edit_article_list_path(@article_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s}) %>
 	<br />
