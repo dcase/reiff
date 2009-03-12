@@ -20,6 +20,7 @@
 	<![endif]-->
 	<!--[if lt IE 7]>
 	<%= stylesheet_link_tag 'ie6' %>
+	<%= javascript_include_tag 'iepngfix_tilebg' %>
 	<![endif]-->
 	<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
 	<%= javascript_include_tag 'jquery/jquery',
