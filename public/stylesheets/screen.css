@@ -81,7 +81,9 @@ div.sidebar {
 div#page {
 	width: auto;
 }
-div#page_sections_container {
+div#page_sections_container,
+div#page,
+div.page_section {
 	position: relative;
 }
 div.has-sidebar {
