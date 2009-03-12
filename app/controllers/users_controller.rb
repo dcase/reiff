@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+ before_filter :permission
   # render new.rhtml
   def new
     @user = User.new

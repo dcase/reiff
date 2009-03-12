@@ -1,4 +1,5 @@
 class SeoProfilesController < ApplicationController
+  before_filter :permission
   # GET /seo_profiles
   # GET /seo_profiles.xml
   def index

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # before_filter :permission, :except => :show
+  before_filter :permission, :except => :show
   
   # GET /pages
   # GET /pages.xml

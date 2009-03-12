@@ -1,4 +1,6 @@
 class BiosController < ApplicationController
+  before_filter :permission, :except => :show
+  
   # GET /bios
   # GET /bios.xml
   def index
