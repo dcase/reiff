@@ -82,8 +82,7 @@ div#page {
 	width: auto;
 }
 div#page_sections_container,
-div#page,
-div.page_section {
+div#page {
 	position: relative;
 }
 div.has-sidebar {
@@ -508,6 +507,7 @@ ul#pagemenu li a.active:active {
 .column-list {
 	padding-top: 35px;
 	padding-left: 75px;
+	position: relative;
 }
 .column-list ul {
 	list-style: none;
@@ -637,6 +637,7 @@ ul#pagemenu li a.active:active {
 	font-size: 10px;
 	color: #333;
 	line-height: 115%;
+	margin: 15px;
 }
 .file_list {
 	padding: 15px 0 0 40px;
