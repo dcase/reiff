@@ -279,7 +279,7 @@ div#admin-toolbar-container {
 	z-index: 999;
 	width: 150px;
 	top: 0;
-	left: 5;
+	left: 0;
 	background: #fff;
 	border: 1px solid #333;
 	text-align: left;
