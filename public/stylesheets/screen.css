@@ -284,6 +284,11 @@ div#admin-toolbar-container {
 	text-align: left;
 	padding: 10px;
 }
+div#admin-toolbar-container .admin_drag_handle {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
 ul#page-admin-menu {
 	padding: 0;
 	margin: 0;

@@ -187,6 +187,9 @@ $(document).ready( function() {
 	       event.preventDefault();
 	});
 	
+	// Make Admin Toolbar draggable
+	$('#admin-toolbar-container').draggable({ handle: '.admin_drag_handle'});
+	
 	// For Clients, Specialties
 	$('.column-list').livequery( function() {
 		$('ul',this).multiColumnList(12,250);
