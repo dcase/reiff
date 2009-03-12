@@ -14,12 +14,12 @@
 		}.sort.each do |id, name| %>
 			<% if @site_section %>
 				<% if @site_section.id == id %>
-					<li><%= link_to(image_tag(name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+					<li><%= link_to(image_tag(name + '_ro.png', :alt => name), { }, :href => "/#{name}", :title => name) %></li>
 				<% else %>
-					<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+					<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { }, :href => "/#{name}", :title => name) %></li>
 				<% end %>
 			<% else %>
-				<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+				<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { }, :href => "/#{name}", :title => name) %></li>
 			<% end %>
 	<% end %>
 </ul>

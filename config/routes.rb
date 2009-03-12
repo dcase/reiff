@@ -1,4 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.home "/home", :controller => "site_sections", :action => "show", :id => 1
+  map.specialties "/specialties", :controller => "site_sections", :action => "show", :id => 3
+  map.clients "/clients", :controller => "site_sections", :action => "show", :id => 4
+  map.applications "/insurance-applications", :controller => "site_sections", :action => "show", :id => 5
+  map.credits "/credits", :controller => "site_sections", :action => "show", :id => 6
+  map.contact "/contact", :controller => "site_sections", :action => "show", :id => 7
+  
   map.resources :contact_lists do |contact_list|
     contact_list.resources :contact_list_items, :collection => { :order => :post }
   end
@@ -27,7 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :page_sections
 
 
-  map.resources :site_sections, :has_many => :pages
+  map.resources :site_sections, :has_many => :pages, :as => "sections"
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
