@@ -634,7 +634,7 @@ ul#pagemenu li a.active:active {
 	padding: 15px 0 0 40px;
 }
 .file_list #list-container {
-	height: 175px;
+	min-height: 175px;
 }
 .file_list ul {
 	list-style: none;
