@@ -51,6 +51,31 @@ jQuery.fn.extend({
 		this.remove();
 	}
 });
+(function($) {
+	var timeout = 0;
+	
+	$.fn.textScroll = function(up_btn,down_btn,target,duration) {
+		$(up_btn).bind('mousedown', function() { 
+			startScrollUp(this,target,duration); 
+		}).bind('mouseup', stopScroll);
+		$(down_btn).bind('mousedown', function() { 
+			startScrollDown(this,target,duration); 
+		}).bind('mouseup', stopScroll);
+	};
+		
+	function startScrollUp(obj,target,duration) {
+		$(obj).scrollTo('-=' + target,duration);
+		timeout = setTimeout("startScrollUp(obj,target,duration)", 60);
+	};
+	function startScrollDown(obj,target,duration) {
+		$(obj).scrollTo('+=' + target,duration);
+		timeout = setTimeout("startScrollDown(obj,target,duration)", 60);
+	};
+	function stopScroll() {
+		clearTimeout(timeout);
+	};
+
+})(jQuery);
 
 // Page specific stuff
 
