@@ -197,7 +197,7 @@ $(document).ready( function() {
 	
 	// For Applications
 	$('.file_list').livequery( function() {
-		$('ul',this).multiColumnList(3,49);
+		$('ul',this).multiColumnList(3,249);
 	});
 	
 	// For Credits
