@@ -28,7 +28,7 @@
 		<% end %>
 	<% end %>
 <% else %>
-	<% if authorized? %>
+	<% if super_authorized? %>
 		<%= image_tag('add.png', :size => "16x16", :alt => "Add Sub-section") %>
 		<%= link_to('Add Sub-section', { :controller => 'site_sections', :action => 'new', :parent_id => @site_section_root }) %>
 	<% end %>
@@ -38,6 +38,7 @@
 			<% if authorized? %>
 				<%= image_tag("drag_handle.png", :size => "16x16", :class => "section_drag_handle") %>
 				<%= link_to(image_tag('pencil.png', :size => "16x16", :alt => "Edit Section"), edit_site_section_path(section)) %>
+			<% elsif super_authorized? %>
 				<%= link_to(image_tag('fail.png', :size => "16x16", :alt => "Delete Section"), section, { :confirm => "Are you sure?", :method => :delete }) %>
 				<%= link_to(image_tag('add.png', :size => "16x16", :alt => "Add Page to Section"), new_site_section_page_path(section)) %>
 			<% end %>
