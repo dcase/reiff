@@ -14,7 +14,7 @@
 	<meta name="description" content="<%= yield :seo_description %>" />
 	<meta name="author" content="Command C, Custom Web Site Design, Website Design" />
 	<meta name="robots" content="index,follow" /> 
-	<%= stylesheet_link_tag 'screen', 'modal','slimbox2' %>
+	<%= stylesheet_link_tag 'screen', 'modal','slimbox2','jScrollPane' %>
 	<!--[if IE]>
 	<%= stylesheet_link_tag 'ie' %>
 	<![endif]-->
@@ -30,6 +30,7 @@
 	'jquery/jquery.scrollTo',
 	'jquery/jquery.serialScroll',
 	'jquery/slimbox2',
+	'jquery/jScrollPane',
 	'application' %>
 	<%= yield :page_js %>
 </head>

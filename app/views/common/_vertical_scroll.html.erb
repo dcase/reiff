@@ -1,30 +1,15 @@
-<div id="scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>" class="scroll-buttons-vertical">
-	<%= image_tag 'scroll-up.png', :id => "scroll_up", :size => "12x9", :alt => "scroll up" %>
-	<%= image_tag 'scroll-down.png', :id => "scroll_down", :size => "12x9", :alt => "scroll down" %>
-</div>
 <script type="text/javascript">
 <!--
 $(document).ready( function(){
 <% if @for_section %>
 	$('#page_section_<%= @page_section.id.to_s %>').css({ 'height': '<%= @page_section.scroll_height || 300 %>px', 'position': 'relative' });
 	$('#scroll_page_section_<%= @page_section.id.to_s %>').css({'height': '<%= @page_section.scroll_height || 300 %>px', 'overflow': 'hidden'});
-	$('#scroll_buttons_<%= @page_section.id.to_s %>').css({position: 'absolute', left: ( $('#page_section_<%= @page_section.id %>').width() + 25) + 'px', top: ( $('#page_section_<%= @page_section.id %>').height() - 30) + 'px'});
-	// NEED JQUERY SCROLL PLUGIN
+	$('#scroll_page_section_<%= @page_section.id.to_s %>').jScrollPane({showArrows:true});
 <% else %>
 	$('#page_sections_container').css({'height': '<%= @page.scroll_height || 300 %>px', 'overflow': 'hidden', 'position': 'relative'});
-	$('#scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' )%>').css({'position': 'absolute', 'right': '-5px',' bottom': '25px'});
-	// NEED JQUERY SCROLL PLUGIN
+	$('#page_sections_container').jScrollPane({showArrows:true});
 <% end %>
 });
 
 //-->
 </script>
-<!--[if lt IE 7]>
-<script type="text/javascript">
-	<% if @for_section %>
-		$('#scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' )%>').css({'position': 'absolute', 'left': ( $('#page_section_<%= @page_section.id %>').width() + 25) + 'px', 'top': ( $('#page_section_<%= @page_section.id %>').height() - 30) + 'px'});
-	<% else %>
-		$('#scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' )%>').css({'position': 'absolute', 'right': '-20px', 'bottom': '105px'});
-	<% end %>
-</script>
-<![endif]-->
