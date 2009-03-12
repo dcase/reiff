@@ -522,7 +522,7 @@ ul#pagemenu li a.active:active {
 	white-space: nowrap;
 	overflow: hidden;
 	height: 250px;
-	width: 500px;
+	width: 494px;
 	position: relative;
 }
 #list-container .column {
@@ -548,6 +548,7 @@ ul#pagemenu li a.active:active {
 }
 .clients-list #list-container {
 	height: 275px;
+	width: 494px;
 }
 #section-pagemenu {
 	list-style: none;
@@ -642,6 +643,7 @@ ul#pagemenu li a.active:active {
 }
 .file_list #list-container {
 	min-height: 175px;
+	width: 494px;
 }
 .file_list ul {
 	list-style: none;
@@ -670,6 +672,7 @@ ul#pagemenu li a.active:active {
 }
 .credits-list #list-container {
 	height: 230px;
+	width: 494px;
 }
 .credits-list ul {
 	list-style: url(../images/credits-bullet.png);

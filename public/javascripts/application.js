@@ -192,12 +192,12 @@ $(document).ready( function() {
 	
 	// For Clients, Specialties
 	$('.column-list').livequery( function() {
-		$('ul',this).multiColumnList(12,250);
+		$('ul',this).multiColumnList(12,249);
 	});
 	
 	// For Applications
 	$('.file_list').livequery( function() {
-		$('ul',this).multiColumnList(3,250);
+		$('ul',this).multiColumnList(3,49);
 	});
 	
 	// For Credits
@@ -205,7 +205,7 @@ $(document).ready( function() {
 		$("a[rel^='lightbox']").slimbox({/* Put custom options here */}, null, function(el) {
 			return (this == el) || ((this.rel.length > 8) && (this.rel == el.rel));
 		});
-		$('ul',this).multiColumnList(7,375);
+		$('ul',this).multiColumnList(7,374);
 	});
 	
 	// For Contact
