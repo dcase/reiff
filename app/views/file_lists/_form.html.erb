@@ -1,0 +1,26 @@
+<% form_for(@file_list, :html => { :multipart => true, :class => 'ajax' }) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'page_sections/form_include'%>
+  <h3>List items:</h3>
+  <ol id="file_list_items">
+  	<%= render :partial => 'file_list_item', :collection => @file_list.file_list_items %>
+  </ol>
+  <p><%= link_to_function "Add item" do |page| 
+	page << "$('#file_list_items').append('" + escape_javascript( render :partial => 'file_list_item', :object => FileListItem.new ) + "');"
+	end %></p>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>
+
+<script type="text/javascript">
+		$('#file_list_items').sortable({
+			handle: '.file_list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				$.post('/file_list_items/order', $(this).sortable('serialize'));
+			} 
+		});
+</script>

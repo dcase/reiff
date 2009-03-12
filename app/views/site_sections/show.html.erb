@@ -1,0 +1,23 @@
+<% content_for :title do %>
+	<% unless @site_section.name.downcase == "home" %>
+	 &gt; <%= @site_section.name %>
+	<% end %>
+<% end %>
+<% if @page %>
+	<%= render :partial => 'pages/show', :locals => { :page => @page } %>
+<% else %>
+	<h4>You need to <%= link_to 'add a page', new_site_section_page_path(@site_section), :style => 'text-decoration: underline;' %> to this section</h4>
+	<% unless @site_section.children.empty? %>
+		<ul>
+		<% for child in @site_section.children %>
+			<% content_tag_for(:li,child) do %>
+				<%= link_to child.name, child %>
+			<% end %>
+		<% end %>
+		</ul>
+	<% end %>
+	<% content_for :admin_toolbar do %>
+		<li><%= image_tag "add.png", :size => "16x16" %><%= link_to "Add page to this section", new_site_section_page_path(@site_section) %></li>
+	<% end %>
+<% end %>
+

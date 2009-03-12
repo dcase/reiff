@@ -1,0 +1,14 @@
+<% content_tag_for(:li, list_item) do %>
+	<% fields_for 'list[list_item_attributes][]', list_item do |a| %>
+		<%= a.error_messages %>
+		<% unless list_item.new_record? %>
+			<%= a.hidden_field :id, :index => nil %>
+			<%= image_tag("drag_handle.png", :size => "16x16", :class => "list_item_drag_handle") %>
+			<%= a.text_field :output, :index => nil %>
+			<%= link_to 'Delete', [@list,list_item], :confirm => 'Are you sure?', :method => :delete, :title => "Delete", :class => 'ajax-delete' %>
+		<% else %>
+			<%= a.text_field :output, :index => nil %>
+			<%= link_to_function 'Remove', "$(this).parent('.list_item').remove()" %>
+		<% end %>
+	<% end %>
+<% end %>

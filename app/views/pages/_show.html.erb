@@ -1,0 +1,63 @@
+<% content_for :title do %><%=h @page.seo_profile.title %><% end %>
+<% content_for :seo_keywords do %><%=h @page.seo_profile.keywords %><% end %>
+<% content_for :seo_description do %><%=h @page.seo_profile.description %><% end %>
+<% content_for :seo_heading do %><%=h @page.seo_profile.heading %><% end %>
+<% content_for :body_class do %><%= "section-" + @site_section_root.name.gsub(/['" ]/, '').downcase %><% end %>
+<% content_for :container_class do %><%= "page-" + @page.name.gsub(/['" ]/, '').downcase %><% end %>
+<% content_for :page_heading do %>
+	<h3 id="section-heading"><%= @site_section_root.name %></h3>
+<% end %>
+<% content_for :sidebar do %>
+	<% if @site_section.pages.count > 1 or @site_section.parent %>
+		<div id="sidebar">
+			<%= render :partial => 'pages/menu', :locals => { :page => @page, :site_section => @site_section } %>
+		</div>
+	<% end %>
+<% end %>
+<div id="page"<%= " class=\"has-sidebar\"" if @site_section.pages.count > 1%>>
+	<div id="page_sections_container">
+		<% @page_sections = @page.page_sections %>
+		<% for @page_section in @page_sections %>
+			<%= render :partial => 'page_sections/show', :locals => { :page_section => @page_section } %>
+		<% end %>
+	</div>
+	<% if authorized? %>	
+		<% content_for :page_js do %>
+			<script type="text/javascript">
+				$( function() {
+					$('#page_sections_container').sortable({
+						handle: '.page_section_drag_handle',
+						items: 'div',
+						update: function() {
+							$.post('/page_sections/order', $(this).sortable('serialize'));
+						} 
+					});
+				});
+			</script>
+		<% end if @page.page_sections.count > 1 %>
+	<% end %>
+</div>
+
+	<% content_for :admin_toolbar do %>
+		<% if super_authorized? %>
+			<li><h4>Manage Page</h4></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Manage SEO', { :controller => 'seo_profiles', :action => 'index', :page_id => @page }, :class => 'modal' %></li>
+			<li><%= image_tag 'pencil.png', :size => "16x16" %><%= link_to 'Edit Current Page', edit_site_section_page_path(@site_section, @page) %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Text Content', { :controller => 'copy_texts', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Raw HTML', { :controller => 'raw_htmls', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add List', { :controller => 'lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add File List', { :controller => 'file_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Article List', { :controller => 'article_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Contact List', { :controller => 'contact_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+		<% end %>
+		<% if authorized_preview? %>
+			<li><%= image_tag 'fail.png', :size => "16x16" %><%= link_to 'Turn off preview', :controller => 'pages', :action => 'show', :id => @page, :site_section_id => @site_section %></li>
+		<% elsif authorized? %>
+			<li><%= image_tag 'preview.png', :size => "16x16" %><%= link_to 'Preview Page', :controller => 'pages', :action => 'show', :id => @page, :site_section_id => @site_section, :admin => 'false' %></li>
+		<% end %>
+		<% if super_authorized? %>
+			<li><h4>Manage Section</h4></li>
+			<li><%= image_tag "pencil.png", :size => "16x16" %><%= link_to "Edit Section", edit_site_section_path(@site_section) %></li>
+			<li><%= image_tag "add.png", :size => "16x16" %><%= link_to "Add page to this section", new_site_section_page_path(@site_section) %></li>
+		<% end %>
+	<% end %>

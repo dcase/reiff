@@ -1,0 +1,26 @@
+<% content_tag_for(:li, file_list_item) do %>
+	<% fields_for 'file_list[file_list_item_attributes][]', file_list_item do |a| %>
+		<%= a.error_messages %>
+		<% unless file_list_item.new_record? %>
+			<%= a.hidden_field :id, :index => nil %>
+			<%= image_tag("drag_handle.png", :size => "16x16", :class => "file_list_item_drag_handle") %>
+			<p>
+				<label>Description:</label><br />
+				<%= a.text_field :description, :index => nil %>
+			</p>
+			<p>
+				<%= a.file_field :file, :index => nil %>
+			</p>
+			<%= link_to 'Delete', [@file_list,file_list_item], :confirm => 'Are you sure?', :method => :delete, :title => "Delete", :class => 'ajax-delete' %>
+		<% else %>
+			<p>
+				<label>Description:</label><br />
+				<%= a.text_field :description, :index => nil %>
+			</p>
+			<p>
+				<%= a.file_field :file, :index => nil %>
+			</p>
+			<%= link_to_function 'Remove', "$(this).parent('.file_list_item').remove()" %>
+		<% end %>
+	<% end %>
+<% end %>

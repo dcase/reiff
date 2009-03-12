@@ -1,0 +1,40 @@
+<h1>Editing page_section</h1>
+
+<% form_for(@page_section) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :page %><br />
+    <%= f.text_field :page %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.label :has_scroll %><br />
+    <%= f.check_box :has_scroll %>
+  </p>
+  <p>
+    <%= f.label :scroll_width %><br />
+    <%= f.text_field :scroll_width %>
+  </p>
+  <p>
+    <%= f.label :scroll_height %><br />
+    <%= f.text_field :scroll_height %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @page_section %> |
+<%= link_to 'Back', page_sections_path %>

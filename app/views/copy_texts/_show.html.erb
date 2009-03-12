@@ -1,0 +1,12 @@
+<% if super_authorized? %>
+	<%= link_to( image_tag("fail.png", :size => "16x16"), { :controller => 'copy_texts', :action => 'destroy', :id => @copy_text, :page_section_id => @page_section}, {  :title => "Delete", :class => "ajax-delete" }) %>
+	<%= link_to( 'delete text section', { :controller => 'copy_texts', :action => 'destroy', :id => @copy_text, :page_section_id => @page_section}, { :title => "Delete", :class => "ajax-delete" }) %>
+	<br />
+<% end %>
+<% if authorized? %>
+	<%= link_to( image_tag("pencil.png", :size => "16x16"), { :controller => 'copy_texts', :action => 'edit', :id => @copy_text, :page_section_id => @page_section}, :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+	<%= link_to( 'edit text section', { :controller => 'copy_texts', :action => 'edit', :id => @copy_text, :page_section_id => @page_section}, :title => "Edit", :class => 'modal', :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+	<br />
+<% end %>
+<%= textilize(@copy_text.output) %>
+

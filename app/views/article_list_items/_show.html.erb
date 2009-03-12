@@ -1,0 +1,22 @@
+<% content_tag_for(:li, item) do %>
+	<% if authorized? %>
+		<%= image_tag("drag_handle.png", :size => "16x16", :class => "article_list_item_drag_handle") %>
+		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_article_list_article_list_item_path(@article_list,item), :title => "Edit") %>
+		<%= link_to(image_tag("fail.png", :size => "16x16"), article_list_article_list_item_path(@article_list,item), :title => "Delete", :class => "ajax-delete" ) %>
+	<% end %>
+	<% if item.is_link? %>
+		<%= link_to textilize_without_paragraph(item.output), {}, :href => item.url, :target => "_blank" %>
+	<% elsif not item.articles.empty? %>
+		<% i = 0 %>
+		<% for article in item.articles %>
+			<% if i == 0 %>
+				<%= link_to textilize_without_paragraph(item.output), article.page.url, :rel => "lightbox-article#{item.id}" %>
+			<% else %>
+				<%= link_to '#', article.page.url, :rel => "lightbox-article#{item.id}", :class => 'hidden' %>
+			<% end %>
+			<% i += 1 %>
+		<% end %>
+	<% else %>
+		<%= textilize_without_paragraph(item.output) %>
+	<% end %>
+<% end %>

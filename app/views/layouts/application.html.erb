@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title><%= (title = yield(:title)) ? title : "Reiff Insurance" %></title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="language" content="en-us" />
+	<meta http-equiv="reply-to" content="info@commandc.com" />
+	<meta name="resource-type" content="document" />
+	<meta name="distribution" content="GLOBAL" />
+	<meta name="copyright" content="copyright Reiff Insurance" />
+	<meta name="keywords" content="<%= yield :seo_keywords %>" />
+	<meta name="description" content="<%= yield :seo_description %>" />
+	<meta name="author" content="Command C, Custom Web Site Design, Website Design" />
+	<meta name="robots" content="index,follow" /> 
+	<%= stylesheet_link_tag 'screen', 'modal','slimbox2' %>
+	<!--[if IE]>
+	<%= stylesheet_link_tag 'ie' %>
+	<![endif]-->
+	<!--[if lt IE 7]>
+	<%= stylesheet_link_tag 'ie6' %>
+	<![endif]-->
+	<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+	<%= javascript_include_tag 'jquery/jquery', 'jquery/jquery-ui','jquery/jquery.curvycorners','jquery/jquery.livequery','jquery/jquery-jqmodal','jquery/jquery.scrollTo','jquery/jquery.serialScroll','jquery/slimbox2','application' %>
+	<%= yield :page_js %>
+</head>
+<body class="<%= yield :body_class %>">
+<h1 id="seo-heading"><%= (heading = yield(:seo_heading)) ? heading : "Entertainment Insurance: Theater, TV, Documentaries, Music, Special Events, Personalities, Cyber, &amp; More..." %></h1>
+<div id="container" class="<%= yield :container_class %>">
+	<div id="header">
+		<%= image_tag 'logo.gif', :size => '144x63', :alt => "Reiff Insurance", :id => 'logo' %>
+		<div id="tagline">
+			Protecting your risks<br />Protecting your rewards
+		</div>
+	</div><!-- end 'header' -->
+	<div id="navigation">
+		<%= render :partial => 'common/main_menu' %>
+	</div><!-- end 'navigation' -->
+	<div id="content">
+		<% if flash[:error] %>
+			<div class="flash error"><%= flash[:error] %></div>
+		<% end %>
+		<% if flash[:notice] %>
+			<div class="flash notice"><%= flash[:notice] %></div>
+		<% end %>
+		<%= yield :page_heading %>
+		<%= yield :sidebar %>
+		<%= yield  %>
+	</div><!-- end 'content' -->
+	<%= render :partial => 'common/apply_now_button' %>
+</div><!-- end 'container' -->
+<h2 id="seo-footer"><%= (heading = yield(:seo_heading)) ? heading : "Entertainment Insurance: Theater, TV, Documentaries, Music, Special Events, Personalities, Cyber, &amp; More..." %></h2>
+<div id="footer">
+	<%= render :partial => 'common/footer' %>
+</div><!-- end 'footer' -->
+<% if authorized? or authorized_preview? %>
+	<%= render :partial => 'common/admin_toolbar', :locals => { :site_section => @site_section, :page => @page } %>
+<% end %>
+</body>
+</html>

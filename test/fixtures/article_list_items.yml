@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  output: MyText
+  article_list: 
+  is_link: false
+  url: MyString
+  position: 1
+
+two:
+  output: MyText
+  article_list: 
+  is_link: false
+  url: MyString
+  position: 1

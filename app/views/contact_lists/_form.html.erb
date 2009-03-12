@@ -1,0 +1,26 @@
+<% form_for(@contact_list, :html => { :class => 'ajax' }) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'page_sections/form_include'%>
+  <h3>People:</h3>
+  <ol id="contact_list_items">
+  	<%= render :partial => 'contact_list_item', :collection => @contact_list.contact_list_items %>
+  </ol>
+  <p><%= link_to_function "Add contact" do |page| 
+	page << "$('#contact_list_items').append('" + escape_javascript( render :partial => 'contact_list_item', :object => ContactListItem.new ) + "');"
+	end %></p>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>
+
+<script type="text/javascript">
+		$('#contact_list_items').sortable({
+			handle: '.contact_list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				$.post('/contact_list_items/order', $(this).sortable('serialize'));
+			} 
+		});
+</script>

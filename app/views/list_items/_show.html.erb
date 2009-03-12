@@ -1,0 +1,7 @@
+<% content_tag_for(:li, list_item) do %>
+	<% if authorized? %>
+		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_list_list_item_path(@list,list_item), :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+		<%= link_to(image_tag("fail.png", :size => "16x16"), list_list_item_path(@list,list_item), :title => "Delete", :class => 'ajax-delete' )%>
+	<% end %>
+	<%= textilize_without_paragraph(list_item.output) %>
+<% end %>

@@ -1,0 +1,15 @@
+<% form_for(@site_section) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+	<%= f.label 'Sub-section of:' %>
+	<%= f.collection_select :parent_id, SiteSection.roots, :id, :name, { :include_blank => 'Top-Level'} %>
+  </p>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>

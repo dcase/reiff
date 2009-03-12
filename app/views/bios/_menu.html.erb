@@ -1,0 +1,28 @@
+<h4 class="hidden">Bio Menu</h4>
+	<ul id="pagemenu">
+	<% for bio in @bios %>
+		<% content_tag_for(:li, bio) do %>
+			<% if authorized? %>
+				<%= image_tag("drag_handle.png", :size => "16x16", :class => "bio_drag_handle") %>
+				<%= link_to( image_tag("pencil.png", :size => "16x16"), edit_bio_path(@bio), :title => "Edit", :class => "modal update_content" ) %>
+				<%= link_to( image_tag("fail.png", :size => "16x16"), @bio, {:confirm => 'Are you sure?', :method => :delete, :title => "Delete"}) %>
+			<% end %>
+			<%= link_to bio.name, bio, :class => ( @bio == bio ? "active" : "inactive" ) %>
+		<% end %>
+	<% end %>
+	</ul>
+	<% if authorized? %>	
+		<% content_for :page_js do %>
+			<script type="text/javascript">
+				$( function() {
+					$('#pagemenu').sortable({
+						handle: '.bio_drag_handle',
+						items: 'li',
+						update: function() {
+							$.post('<%= url_for(:action => "order") %>', $(this).sortable('serialize'));
+						} 
+					});
+				});
+			</script>
+		<% end %>
+	<% end %>

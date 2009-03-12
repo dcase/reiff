@@ -1,0 +1,38 @@
+<p>
+  <b>Title:</b>
+  <%=h @page_section.title %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @page_section.position %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%=h @page_section.page %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @page_section.content %>
+</p>
+
+<p>
+  <b>Has scroll:</b>
+  <%=h @page_section.has_scroll %>
+</p>
+
+<p>
+  <b>Scroll width:</b>
+  <%=h @page_section.scroll_width %>
+</p>
+
+<p>
+  <b>Scroll height:</b>
+  <%=h @page_section.scroll_height %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_section_path(@page_section) %> |
+<%= link_to 'Back', page_sections_path %>

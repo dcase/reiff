@@ -1,0 +1,30 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Site section</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%=h page.name %></td>
+    <td><%=h page.position %></td>
+    <td><%=h page.site_section %></td>
+    <td><%= link_to 'Show', site_section_page_path(@site_section, page) %></td>
+    <td><%= link_to 'Edit', edit_site_section_page_path(@site_section, page) %></td>
+    <td><%= link_to 'Destroy', [@site_section, page], :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'Add Text Content', :controller => 'copy_texts', :action => 'new', :page_id => page %></td>
+	<td><%= link_to 'Add Chronology', :controller => 'chronologies', :action => 'new', :page_id => page %></td>
+	<td><%= link_to 'Add List', :controller => 'lists', :action => 'new', :page_id => page %></td>
+	<td><%= link_to 'Add Quote', :controller => 'quotes', :action => 'new', :page_id => page %></td>
+	<td><%= link_to 'Add Graphic', :controller => 'graphics', :action => 'new', :page_id => page %></td>
+	<td><%= link_to 'Add Article List', :controller => 'article_lists', :action => 'new', :page_id => page %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page', new_site_section_page_path(@site_section) %>

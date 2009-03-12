@@ -1,0 +1,18 @@
+<% content_tag_for(:li, contact_list_item) do %>
+	<% fields_for 'contact_list[contact_list_item_attributes][]', contact_list_item do |a| %>
+		<%= a.error_messages %>
+		<% unless contact_list_item.new_record? %>
+			<%= a.hidden_field :id, :index => nil %>
+			<%= image_tag("drag_handle.png", :size => "16x16", :class => "contact_list_item_drag_handle") %>
+			Name: <%= a.text_field :name, :index => nil %><br />
+			Title(optional): <%= a.text_field :title, :index => nil %><br />
+			Email: <%= a.text_field :email, :index => nil %><br />
+			<%= link_to 'Delete', [@contact_list,contact_list_item], :confirm => 'Are you sure?', :method => :delete, :title => "Delete", :class => 'ajax-delete' %>
+		<% else %>
+			Name: <%= a.text_field :name, :index => nil %><br />
+			Title(optional): <%= a.text_field :title, :index => nil %><br />
+			Email: <%= a.text_field :email, :index => nil %><br />
+			<%= link_to_function 'Remove', "$(this).parent('.contact_list_item').remove()" %>
+		<% end %>
+	<% end %>
+<% end %>

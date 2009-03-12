@@ -1,0 +1,18 @@
+<h1>Listing site_sections</h1>
+
+<ul>
+<% for site_section in @site_sections %>
+
+	<% content_tag_for(:li, site_section) do %>
+		<%= link_to site_section.name, site_section %>
+	    <%= link_to 'Show', site_section %>
+	    <%= link_to 'Edit', edit_site_section_path(site_section) %>
+	    <%= link_to 'Destroy', site_section, :confirm => 'Are you sure?', :method => :delete %>
+		<%= link_to 'Show Pages', site_section_pages_path(site_section) unless site_section.pages.count == 0 %>
+	<% end %>
+
+<% end %>
+</ul>
+<br />
+
+<%= link_to 'New site_section', new_site_section_path %>

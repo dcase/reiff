@@ -1,0 +1,15 @@
+<% content_tag_for(:li, article) do %>
+	<% fields_for 'article_list_item[article_attributes][]', article do |a| %>
+		<%= a.error_messages %>
+		<% unless article.new_record? %>
+			<%= a.hidden_field :id, :index => nil %>
+			<%= image_tag("drag_handle.png", :size => "16x16", :class => "article_drag_handle") %>
+			<%= image_tag article.page.url(:thumb) %>
+			Page Image: <%= a.file_field :page, :index => nil %>
+			<%= link_to 'Delete', { :controller => 'articles', :action => 'destroy', :id => article.id }, :title => "Delete", :class => "ajax-delete" %>
+		<% else %>
+			Page Image: <%= a.file_field :page, :index => nil %>
+			<%= link_to_function 'Remove', "$(this).parent('.article').remove()" %>
+		<% end %>
+	<% end %>
+<% end %>

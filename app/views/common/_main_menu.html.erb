@@ -1,0 +1,25 @@
+<ul id="mainmenu">
+	<li class="first"><%= link_to(image_tag('icon-home.png', :size => '22x37', :alt => 'home'), root_url, :title => 'Home') %></li>
+	<li><% unless @bio %>
+			<%= link_to(image_tag('principals.png', :alt => 'Principals', :mouseover => 'principals_ro.png'), bios_path, :title => 'Principals') %>
+		<% else %>
+			<%= link_to(image_tag('principals_ro.png', :alt => 'Principals'), bios_path, :title => 'Principals') %>
+		<% end %></li>
+	<% { 
+		3 => 'specialties', 
+		4 => 'clients', 
+		5 => 'insurance-applications', 
+		6 => 'credits', 
+		7 => 'contact'
+		}.sort.each do |id, name| %>
+			<% if @site_section %>
+				<% if @site_section.id == id %>
+					<li><%= link_to(image_tag(name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+				<% else %>
+					<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+				<% end %>
+			<% else %>
+				<li><%= link_to(image_tag(name + '.png', :mouseover => name + '_ro.png', :alt => name), { :controller => 'site_sections', :action => 'show', :id => id }, :title => name) %></li>
+			<% end %>
+	<% end %>
+</ul>

@@ -1,0 +1,12 @@
+<% form_for([@site_section, @page]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label 'Name (will be used for link):' %><br />
+    <%= f.text_field :name %>
+  </p>
+  <%= render :partial => "seo_profiles/form_include", :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>

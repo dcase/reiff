@@ -1,0 +1,18 @@
+<% form_for([@contact_list,@contact_list_item], :html => { :class => 'ajax' }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+	<%= f.text_field :name %>
+  </p>
+  <p>
+    <label>Title (optional):<br />
+	<%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+	<%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>

@@ -1,0 +1,14 @@
+<% form_for([@file_list,@file_list_item], :html => { :multipart => true, :class => 'ajax' }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :file %><br />
+    <%= f.file_field :file %>
+  </p>
+  <p>
+    <%= f.submit "Submit", :class => 'submit' %>
+  </p>
+<% end %>

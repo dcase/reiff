@@ -1,0 +1,6 @@
+<h4 class="hidden"><%= @bio.name %></h4>
+<%= image_tag @bio.photo.url, :alt => @bio.name, :class => "bio-photo" %>
+<div class="bio-text">
+	<%= textilize(@bio.bio) %>
+	<%= mail_to @bio.email, nil, :encode => "hex" %>
+</div>

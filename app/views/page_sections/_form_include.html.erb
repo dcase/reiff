@@ -1,0 +1,38 @@
+<h4>Page Section fields (<a href="#" class="toggle_fieldset">show/hide</a>):</h4>
+<fieldset<%= ' style="display:none;"' unless @page_section.new_record? %>>
+<% fields_for :page_section do |page| %>
+  <%= page.error_messages %>
+  <%= page.hidden_field :page_id, :value => params[:page_id] %>
+  <%= page.hidden_field :id %>
+  <p>
+    <%= page.label 'Section Title' %><br />
+    <%= page.text_field :title %>
+  </p>
+  <p>
+	<%= page.label 'special class name for this section?' %><br />
+	<%= page.text_field :class_name %>
+  </p>
+  <p>
+    <%= page.label 'should the section title display?' %><br />
+    <%= page.check_box :show_title %>
+  </p>
+  <p>
+    <%= page.label 'should this section scroll?' %><br />
+    <%= page.check_box :has_scroll %>
+  </p>
+  <div id="scroll-info">
+	<p>
+	    <%= page.label 'is this a vertical scroll?' %><br />
+	    <%= page.check_box :is_vertical_scroll %>
+	  </p>
+  	<p>
+	    <%= page.label 'scroll window width (pixels)?' %><br />
+	    <%= page.text_field :scroll_width %>
+	  </p>
+	  <p>
+	    <%= page.label 'scroll window height (pixels)?' %><br />
+	    <%= page.text_field :scroll_height %>
+	  </p>
+  </div>
+<% end %>
+</fieldset>

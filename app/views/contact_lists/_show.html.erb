@@ -1,0 +1,15 @@
+<% if super_authorized? %>
+	<%= link_to( image_tag("fail.png", :size => "16x16"), @contact_list, { :title => "Delete", :class => 'ajax-delete'}) %>
+	<%= link_to( 'delete contact list', @contact_list, { :title => "Delete", :class => 'ajax-delete'}) %>
+	<br />
+<% end %>
+<% if authorized? %>
+	<%= link_to( image_tag("pencil.png", :size => "16x16"), edit_contact_list_path(@contact_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s }) %>
+	<%= link_to( 'edit contact list', edit_contact_list_path(@contact_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s }) %>
+	<br />
+	<%= link_to image_tag("add.png", :size => "16x16"), new_contact_list_contact_list_item_path(@contact_list), :class => 'modal update_page_section_' + @page_section.id.to_s %>
+	<%= link_to "Add item", new_contact_list_contact_list_item_path(@contact_list), :class => 'modal update_page_section_' + @page_section.id.to_s %>
+<% end %>
+<% content_tag_for(:ul, @contact_list) do %>
+	<%= render :partial => 'contact_list_items/show', :collection => @contact_list.contact_list_items, :as => :contact_list_item %>
+<% end %>

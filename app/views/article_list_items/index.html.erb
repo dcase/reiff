@@ -1,0 +1,28 @@
+<h1>Listing article_list_items</h1>
+
+<table>
+  <tr>
+    <th>Output</th>
+    <th>Article list</th>
+    <th>Is link</th>
+    <th>Url</th>
+    <th>Position</th>
+  </tr>
+
+<% for article_list_item in @article_list_items %>
+  <tr>
+    <td><%=h article_list_item.output %></td>
+    <td><%=h article_list_item.article_list %></td>
+    <td><%=h article_list_item.is_link %></td>
+    <td><%=h article_list_item.url %></td>
+    <td><%=h article_list_item.position %></td>
+    <td><%= link_to 'Show', article_list_item %></td>
+    <td><%= link_to 'Edit', edit_article_list_item_path(article_list_item) %></td>
+    <td><%= link_to 'Destroy', article_list_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New article_list_item', new_article_list_item_path %>

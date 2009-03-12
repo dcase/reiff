@@ -1,0 +1,10 @@
+<% if super_authorized? %>
+	<%= link_to( image_tag("fail.png", :size => "16x16"), { :controller => 'raw_htmls', :action => 'destroy', :id => @raw_html, :page_section_id => @page_section}, { :title => "Delete", :class => 'ajax-delete' }) %>
+	<%= link_to( 'delete raw HTML', { :controller => 'raw_htmls', :action => 'destroy', :id => @raw_html, :page_section_id => @page_section}, { :title => "Delete", :class => 'ajax-delete'} ) %>
+	<br />
+	<%= link_to( image_tag("pencil.png", :size => "16x16"), { :controller => 'raw_htmls', :action => 'edit', :id => @raw_html, :page_section_id => @page_section}, :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+	<%= link_to( 'edit raw HTML', { :controller => 'raw_htmls', :action => 'edit', :id => @raw_html, :page_section_id => @page_section}, :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+	<br />
+<% end %>
+<%= @raw_html.output %>
+

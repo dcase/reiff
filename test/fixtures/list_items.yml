@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  output: MyText
+  position: 1
+  list: 
+
+two:
+  output: MyText
+  position: 1
+  list: 

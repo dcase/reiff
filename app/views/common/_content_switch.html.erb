@@ -1,0 +1,27 @@
+<%= case @page_section.content.class.to_s
+	when "CopyText"
+		@copy_text = @page_section.content
+		render :partial => 'copy_texts/show'
+	when "RawHtml"
+		@raw_html = @page_section.content
+		render :partial => 'raw_htmls/show'
+	when "List"
+		@list = @page_section.content
+		render :partial => 'lists/show'
+	when "Bio"
+		@bio = @page_section.content
+		render :partial => 'bios/show'
+	when "FileList"
+		@file_list = @page_section.content
+		render :partial => 'file_lists/show'
+	when "ArticleList"
+		@article_list = @page_section.content
+		render :partial => 'article_lists/show'
+	when "ContactList"
+		@contact_list = @page_section.content
+		render :partial => 'contact_lists/show'
+	else
+		"<h1>did not work</h1>"
+end %>
+
+				

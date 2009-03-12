@@ -1,0 +1,32 @@
+<h1>Listing page_sections</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Position</th>
+    <th>Page</th>
+    <th>Content</th>
+    <th>Has scroll</th>
+    <th>Scroll width</th>
+    <th>Scroll height</th>
+  </tr>
+
+<% for page_section in @page_sections %>
+  <tr>
+    <td><%=h page_section.title %></td>
+    <td><%=h page_section.position %></td>
+    <td><%=h page_section.page %></td>
+    <td><%=h page_section.content %></td>
+    <td><%=h page_section.has_scroll %></td>
+    <td><%=h page_section.scroll_width %></td>
+    <td><%=h page_section.scroll_height %></td>
+    <td><%= link_to 'Show', page_section %></td>
+    <td><%= link_to 'Edit', edit_page_section_path(page_section) %></td>
+    <td><%= link_to 'Destroy', page_section, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page_section', new_page_section_path %>
