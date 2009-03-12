@@ -1,19 +1,32 @@
 <div id="scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>" class="scroll-buttons-vertical">
-	<%= image_tag 'scroll-left.gif', :id => "scroll_left" + ( @for_section ? '_' + @page_section.id.to_s : '' ), :size => "9x12", :alt => "scroll left" %>
-	<%= image_tag 'scroll-right.gif', :id => "scroll_right" + ( @for_section ? '_' + @page_section.id.to_s : '' ), :size => "9x12", :alt => "scroll right" %>
+	<%= image_tag 'scroll-up.png', :class => "scroll_up", :size => "12x9", :alt => "scroll up" %>
+	<%= image_tag 'scroll-down.png', :class => "scroll_down", :size => "12x9", :alt => "scroll down" %>
 </div>
 <script type="text/javascript">
 <!--
+$(document).ready( function(){
 <% if @for_section %>
-	$('#page_section_<%= @page_section.id %>').css({ 'height': '<%= @page_section.scroll_height || 300 %>px', 'position': 'relative' });
-	$('#scroll_page_section_<%= @page_section.id %>').css({'height': '<%= @page_section.scroll_height || 300 %>px', 'overflow': 'auto'});
-	// NEED JQUERY SCROLL PLUGIN
-	$('#scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' )%>').css({position: 'absolute', left: ( $('#page_section_<%= @page_section.id %>').width() + 25) + 'px', top: ( $('#page_section_<%= @page_section.id %>').getHeight() - 30) + 'px'});
+	$('#page_section_<%= @page_section.id.to_s %>').css({ 'height': '<%= @page_section.scroll_height || 300 %>px', 'position': 'relative' });
+	$('#scroll_page_section_<%= @page_section.id.to_s %>').css({'height': '<%= @page_section.scroll_height || 300 %>px', 'overflow': 'hidden'});
+	$('#scroll_buttons_<%= @page_section.id.to_s %>').css({position: 'absolute', left: ( $('#page_section_<%= @page_section.id %>').width() + 25) + 'px', top: ( $('#page_section_<%= @page_section.id %>').height() - 30) + 'px'});
+	$('#scroll_buttons_<%= @page_section.id.to_s %> .scroll_up').livequery('click', function() {
+		$('#scroll_page_section_<%= @page_section.id.to_s %>').scrollTo('-=5px', 30);
+	});
+	$('#scroll_buttons<%= @page_section.id.to_s %> .scroll_down').livequery('click', function() {
+		$('#scroll_page_section_<%= @page_section.id.to_s %>').scrollTo('+=5px', 30);
+	});
 <% else %>
-	$('#page_sections_container').css({'height': '<%= @page.scroll_height || 300 %>px', 'overflow': 'auto', 'position': 'relative'});
-	// NEED JQUERY SCROLL PLUGIN
+	$('#page_sections_container').css({'height': '<%= @page.scroll_height || 300 %>px', 'overflow': 'hidden', 'position': 'relative'});
 	$('#scroll_buttons<%= ( @for_section ? '_' + @page_section.id.to_s : '' )%>').css({'position': 'absolute', 'right': '-5px',' bottom': '25px'});
+	$('#scroll_buttons .scroll_up').livequery('click', function() {
+		$('#page_sections_container').scrollTo('-=5px', 30);
+	});
+	$('#scroll_buttons .scroll_down').livequery('click', function() {
+		$('#page_sections_container').scrollTo('+=5px', 30);
+	});
 <% end %>
+});
+
 //-->
 </script>
 <!--[if lt IE 7]>
