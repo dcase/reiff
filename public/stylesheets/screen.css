@@ -304,6 +304,14 @@ ul#page-admin-menu li img {
 }
 
 /*****************
+* Modal Window
+******************/
+#modal h1,
+#modal2 h1 {
+	padding-top: 10px;
+}
+
+/*****************
 * Main Menu
 ******************/
 ul#mainmenu {
