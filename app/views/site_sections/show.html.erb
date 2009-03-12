@@ -1,8 +1,3 @@
-<% content_for :title do %>
-	<% unless @site_section.name.downcase == "home" %>
-	 &gt; <%= @site_section.name %>
-	<% end %>
-<% end %>
 <% if @page %>
 	<%= render :partial => 'pages/show', :locals => { :page => @page } %>
 <% else %>
