@@ -6,14 +6,17 @@ var modal_trigger;
 
 // rails auth token enabled in jquery
 $(document).ajaxSend(function(event, request, settings) {
-	if (typeof(AUTH_TOKEN) == "undefined") return;
-	settings.data = settings.data || "";
-	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+  if (settings.type == 'GET' || settings.type == 'get' || typeof(AUTH_TOKEN) == "undefined") return;
+  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+  settings.data = settings.data || "";
+  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 });
 
 
+
 jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
+	cache : false
 })
 
 jQuery.fn.submitWithAjax = function() {
