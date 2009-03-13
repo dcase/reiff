@@ -41,7 +41,7 @@
 	<% content_for :admin_toolbar do %>
 		<% if super_authorized? %>
 			<li><h4>Manage Page</h4></li>
-			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Manage SEO', { :controller => 'seo_profiles', :action => 'index', :page_id => @page }, :class => 'modal' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Manage SEO', { :controller => 'seo_profiles', :action => 'index' }, :class => 'modal' %></li>
 			<li><%= image_tag 'pencil.png', :size => "16x16" %><%= link_to 'Edit Current Page', edit_site_section_page_path(@site_section, @page) %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Text Content', { :controller => 'copy_texts', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Raw HTML', { :controller => 'raw_htmls', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
