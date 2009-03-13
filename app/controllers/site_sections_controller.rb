@@ -1,13 +1,8 @@
 class SiteSectionsController < ApplicationController
   before_filter :permission, :except => :show
-  after_filter :set_root, :except => :new
+  
   # GET /site_sections
   # GET /site_sections.xml
-  
-  def set_root
-    @site_section_root = @site_section.set_root
-  end
-  
   def index
     @site_sections = SiteSection.find(:all)
 
@@ -21,6 +16,8 @@ class SiteSectionsController < ApplicationController
   # GET /site_sections/1.xml
   def show
     @site_section = SiteSection.find(params[:id])
+    
+    @site_section_root = @site_section.set_root
     
     @site_section,@page = @site_section.find_first_page
 
