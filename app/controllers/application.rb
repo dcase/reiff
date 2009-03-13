@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   after_filter :discard_flash_on_ajax
   
   # Do not render template for AJAX calls
-  layout proc{ |c| c.request.xhr? ? false : "application" }
+  layout proc{ |c| c.request.xhr? || c.request.format.js? ? false : "application" }
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
