@@ -13,7 +13,8 @@ $(document).ajaxSend(function(event, request, settings) {
 
 
 jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
+	'cache' : false
 })
 
 jQuery.fn.submitWithAjax = function() {
