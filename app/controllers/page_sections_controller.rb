@@ -20,6 +20,7 @@ class PageSectionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js { render :partial => "show" }
       format.xml  { render :xml => @page_section }
     end
   end

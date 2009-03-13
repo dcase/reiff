@@ -212,6 +212,14 @@ $(document).ready( function() {
 			items: 'li',
 			update: function() {
 				$.post('/article_list_items/order', $(this).sortable('serialize'));
+				$.get(
+					'/page_sections/23',
+					{"page_id": 17},
+					function(data) {
+						$('#page_section_23').replaceWith(data);
+					},
+					"html"
+					);
 			} 
 		});
 	});
