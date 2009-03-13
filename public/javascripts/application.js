@@ -206,6 +206,14 @@ $(document).ready( function() {
 			return (this == el) || ((this.rel.length > 8) && (this.rel == el.rel));
 		});
 		$('ul',this).multiColumnList(7,374);
+		$('#list-container').sortable({
+			handle: '.article_list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				$.post('/article_list_items/order', $(this).sortable('serialize'));
+			} 
+		});
 	});
 	
 	// For Contact

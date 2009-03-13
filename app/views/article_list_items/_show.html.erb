@@ -1,5 +1,6 @@
 <% content_tag_for(:li, item) do %>
 	<% if authorized? %>
+		<%= image_tag("drag_handle.png", :size => "16x16", :class => "article_list_item_drag_handle") %>
 		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_article_list_article_list_item_path(@article_list,item), :title => "Edit") %>
 		<%= link_to(image_tag("fail.png", :size => "16x16"), article_list_article_list_item_path(@article_list,item), :title => "Delete", :class => "ajax-delete" ) %>
 	<% end %>
