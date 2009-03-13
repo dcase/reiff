@@ -4,10 +4,8 @@ class SiteSectionsController < ApplicationController
   # GET /site_sections
   # GET /site_sections.xml
   
-  def set_root_and_find_first_page
+  def set_root
     @site_section_root = @site_section.set_root
-    
-    @site_section,@page = @site_section.find_first_page
   end
   
   def index
