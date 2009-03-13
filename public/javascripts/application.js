@@ -205,7 +205,7 @@ $(document).ready( function() {
 		$("a[rel^='lightbox']").slimbox({/* Put custom options here */}, null, function(el) {
 			return (this == el) || ((this.rel.length > 8) && (this.rel == el.rel));
 		});
-		$('ul',this).multiColumnList(7,374);
+		$('ul',this).multiColumnList(7,372);
 		$('#list-container').sortable({
 			handle: '.article_list_item_drag_handle',
 			scroll: true,
