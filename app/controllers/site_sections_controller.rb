@@ -22,7 +22,7 @@ class SiteSectionsController < ApplicationController
   def show
     @site_section = SiteSection.find(params[:id])
     
-    
+    @site_section,@page = @site_section.find_first_page
 
     respond_to do |format|
       format.html # show.html.erb
