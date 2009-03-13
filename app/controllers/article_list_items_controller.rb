@@ -82,7 +82,7 @@ class ArticleListItemsController < ApplicationController
         format.html { render :action => "new" }
         format.js do
           responds_to_parent do
-            render :js => "$('#modal-content').html('" +  @template.escape_javascript(render_to_string(:action => "new")) + "')"
+            render :js => "$('#modal-content').html('" +  @template.escape_javascript(render_to_string(:action => "new", :layout => false)) + "')"
           end
         end
         format.xml  { render :xml => @article_list_item.errors, :status => :unprocessable_entity }
@@ -115,7 +115,7 @@ class ArticleListItemsController < ApplicationController
         format.html { render :action => "edit" }
         format.js do
           responds_to_parent do
-            render :js => "$('#modal-content').html('" +  @template.escape_javascript(render_to_string(:action => "edit")) + "')"
+            render :js => "$('#modal-content').html('" +  @template.escape_javascript(render_to_string(:action => "edit", :layout => false)) + "')"
           end
         end
         format.xml  { render :xml => @article_list_item.errors, :status => :unprocessable_entity }
