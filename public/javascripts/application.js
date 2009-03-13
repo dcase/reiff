@@ -6,12 +6,10 @@ var modal_trigger;
 
 // rails auth token enabled in jquery
 $(document).ajaxSend(function(event, request, settings) {
-  if (settings.type == 'GET' || settings.type == 'get' || typeof(AUTH_TOKEN) == "undefined") return;
-  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
-  settings.data = settings.data || "";
-  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+	if (typeof(AUTH_TOKEN) == "undefined") return;
+	settings.data = settings.data || "";
+	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 });
-
 
 
 jQuery.ajaxSetup({ 
