@@ -1,6 +1,6 @@
 class SiteSectionsController < ApplicationController
   before_filter :permission, :except => :show
-  after_filter :set_root_and_find_first_page, :except => :new
+  after_filter :set_root, :except => :new
   # GET /site_sections
   # GET /site_sections.xml
   
