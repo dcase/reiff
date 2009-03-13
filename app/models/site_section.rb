@@ -28,7 +28,7 @@ class SiteSection < ActiveRecord::Base
     elsif !self.pages.empty? && self.children.empty?
       return self, self.pages.first
     else
-      return false
+      return self, false
     end
   end
   
