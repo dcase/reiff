@@ -645,7 +645,7 @@ ul#pagemenu li a.active:active {
 	font-size: 10px;
 	color: #333;
 	line-height: 115%;
-	margin: 15px;
+	margin: 15px 0;
 }
 .file_list {
 	padding: 15px 0 0 40px;
