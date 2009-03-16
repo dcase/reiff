@@ -10,8 +10,8 @@
 		
 		prev.hide();
 		
-		$('#page_section_<%= @page_section.id %> div:first')
-			.css({
+		$('#page_section_<%= @page_section.id %> div:first').livequery( function(){
+			$(this)..css({
 				'width': '<%= @page_section.scroll_width || 490 %>px',
 				'height': '<%= @page_section.scroll_height || 250 %>px'
 			})
@@ -37,6 +37,7 @@
 					}
 				}
 			});
+		});
 	});
 	</script>
 <% end %>
