@@ -2,41 +2,39 @@
 	<%= image_tag 'scroll-left.png', :id => "scroll_left" + ( @for_section ? '_' + @page_section.id.to_s : '' ), :size => "9x12", :alt => "scroll left" %>
 	<%= image_tag 'scroll-right.png', :id => "scroll_right" + ( @for_section ? '_' + @page_section.id.to_s : '' ), :size => "9x12", :alt => "scroll right" %>
 </div>
-<% content_for :page_js do %>
-	<script type="text/javascript">
-	$(document).ready( function() {
-		prev = $('#scroll_left<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>');
-		next = $('#scroll_right<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>');
-		
-		prev.hide();
-		
-		$('#page_section_<%= @page_section.id %> div:first')
-			.css({
-				'width': '<%= @page_section.scroll_width || 490 %>px',
-				'height': '<%= @page_section.scroll_height || 250 %>px'
-			})
-			.serialScroll({
-				axis: 'x',
-				duration: 750,
-				easing: 'easeOutQuad',
-				step: 1,
-				prev: prev,
-				next: next,
-				items: 'div.column',
-				onBefore:function( e, elem, pane, items, pos ){
-					if( pos == 0 ) {
-						prev.hide();
-						next.show();
-					} 
-					else if( pos == items.length-2 ) {
-						next.hide();
-						prev.show();
-					} 
-					else {
-						$(prev,next).show();
-					}
+<script type="text/javascript">
+$(document).ready( function() {
+	prev = $('#scroll_left<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>');
+	next = $('#scroll_right<%= ( @for_section ? '_' + @page_section.id.to_s : '' ) %>');
+	
+	prev.hide();
+	
+	$('#page_section_<%= @page_section.id %> div:first')
+		.css({
+			'width': '<%= @page_section.scroll_width || 490 %>px',
+			'height': '<%= @page_section.scroll_height || 250 %>px'
+		})
+		.serialScroll({
+			axis: 'x',
+			duration: 750,
+			easing: 'easeOutQuad',
+			step: 1,
+			prev: prev,
+			next: next,
+			items: 'div.column',
+			onBefore:function( e, elem, pane, items, pos ){
+				if( pos == 0 ) {
+					prev.hide();
+					next.show();
+				} 
+				else if( pos == items.length-2 ) {
+					next.hide();
+					prev.show();
+				} 
+				else {
+					$(prev,next).show();
 				}
-			});
-	});
-	</script>
-<% end %>
+			}
+		});
+});
+</script>
