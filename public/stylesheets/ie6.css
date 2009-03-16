@@ -7,3 +7,6 @@ div#content {
 	height: auto !important;
 	height: 350px;
 }
+#list-container {
+	width: 490px;
+}
