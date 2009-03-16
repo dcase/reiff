@@ -137,7 +137,7 @@ $(document).ready( function() {
 
 	$('form.ajax').livequery( function(){
 		if ( $(this).attr('enctype') != "undefined" || $(this).attr('enctype').search(/form/) > -1) {
-			alert($(this).attr('enctype'));
+			alert($(this).attr('enctype').search(/form/));
 			$('body').append('<iframe id="ajax-target" name="ajax-target"></iframe>');
 			$(this).attr({'target':'ajax-target','action':$(this).attr('action') + '.js'});
 		} else {
