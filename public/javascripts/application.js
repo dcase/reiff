@@ -12,12 +12,12 @@ $(document).ajaxSend(function(event, request, settings) {
   settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 });
 
-
-
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
 	cache : false
 })
+
+$.ajaxSettings.accepts.html = $.ajaxSettings.accepts.script;
 
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {
