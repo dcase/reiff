@@ -170,7 +170,7 @@ $(document).ready( function() {
 							}
 						}
 					},
-					"html"
+					"text"
 				);
 			event.preventDefault();
 			});
