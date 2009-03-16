@@ -198,6 +198,34 @@ $(document).ready( function() {
 		$('ul',this).multiColumnList(12,249);
 	});
 	
+	$(".horizontal-scroll").livequery( function() {
+		prev = $(".scroll-left", this);
+		next = $(".scroll-right", this);
+		$("div:first",this).serialScroll({
+			axis: 'x',
+			duration: 750,
+			easing: 'easeOutQuad',
+			step: 1,
+			prev: prev,
+			next: next,
+			items: 'div.column',
+			onBefore:function( e, elem, pane, items, pos ){
+				if( pos == 0 ) {
+					prev.hide();
+					next.show();
+				} 
+				else if( pos == items.length-2 ) {
+					next.hide();
+					prev.show();
+				} 
+				else {
+					$(prev,next).show();
+				}
+			}
+		});
+		prev.hide();
+	});
+	
 	// For Applications
 	$('.file_list').livequery( function() {
 		$('ul',this).multiColumnList(3,249);

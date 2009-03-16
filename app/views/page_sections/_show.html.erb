@@ -1,4 +1,4 @@
-<% div_for(@page_section, :class => (@page_section.content_type.downcase + "-" + @page_section.id.to_s) + " " + @page_section.class_name) do %>
+<% div_for(@page_section, :class => (@page_section.content_type.downcase + "-" + @page_section.id.to_s) + " " + @page_section.class_name + (@page_section.has_scroll? ? (@page_section.is_vertical_scroll? ? " vertical-scroll" : " horizontal-scroll" ) : "")) do %>
 	<% if @page_section.has_scroll? && @page_section.is_vertical_scroll? %>
 		<div id="scroll_page_section_<%= @page_section.id %>">
 	<% end %>
