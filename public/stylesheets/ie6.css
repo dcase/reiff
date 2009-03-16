@@ -7,6 +7,8 @@ div#content {
 	height: auto !important;
 	height: 350px;
 }
-#list-container {
+#list-container,
+.clients-list #list-container,
+.file_list #list-container {
 	width: 490px;
 }
