@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
-  before_filter :correct_safari_and_ie_accept_headers
+  # before_filter :correct_safari_and_ie_accept_headers
   after_filter :discard_flash_on_ajax
   
   # Do not render template for AJAX calls
