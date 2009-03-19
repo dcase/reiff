@@ -36,7 +36,7 @@ jQuery.fn.extend({
 		start_item = 0;
 		end_item = items_in_column;
 		
-		$(this).wrap('<div id="list-container"></div');
+		$(this).wrap('<div id="list-container"></div>');
 		
 		for (i=0;i<columns_count;++i) {
 			list_items
