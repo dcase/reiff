@@ -28,6 +28,7 @@
 	text-align: left;
 	max-height: 450px;
 	overflow: auto;
+	position: relative;
 }
 #modal-close, #modal-close2 {
 	position: absolute;
