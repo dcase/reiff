@@ -1,3 +1,7 @@
 .app-text-bottom p {
 	margin: 30px 0 10px 0;
 }
+#modal #modal-content,
+#modal2 #modal-content2 {
+	height: 450px;
+}
