@@ -249,7 +249,7 @@ $(document).ready( function() {
 					prev.hide();
 					next.show();
 				} 
-				else if( pos == items.length-1 ) {
+				else if( pos == items.length-2 ) {
 					next.hide();
 					prev.show();
 				} 
