@@ -44,18 +44,20 @@
 				<%= link_to(image_tag('add.png', :size => "16x16", :alt => "Add Page to Section"), new_site_section_page_path(section)) %>
 			<% end %>
 			<span><%= section.name %></span>
-			<ul id="pagemenu_<%= section.id %>"<%= (section != @site_section ? ' style="display: none;"' : '') %>>
-			<% for page in section.pages %>
-				<% content_tag_for(:li, page) do %>
-					<% if authorized? %>
-						<%= image_tag("drag_handle.png", :size => "16x16", :class => "page_drag_handle") %>
-						<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_site_section_page_path(section, page), {:title => "Edit"}) %>
-						<%= link_to(image_tag("fail.png", :size => "16x16"), site_section_page_path(section, page), { :confirm => 'Are you sure?', :method => :delete, :title => "Delete"} ) %>
+			<% if section.pages.count > 0 %>
+				<ul id="pagemenu_<%= section.id %>"<%= (section != @site_section ? ' style="display: none;"' : '') %>>
+				<% for page in section.pages %>
+					<% content_tag_for(:li, page) do %>
+						<% if authorized? %>
+							<%= image_tag("drag_handle.png", :size => "16x16", :class => "page_drag_handle") %>
+							<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_site_section_page_path(section, page), {:title => "Edit"}) %>
+							<%= link_to(image_tag("fail.png", :size => "16x16"), site_section_page_path(section, page), { :confirm => 'Are you sure?', :method => :delete, :title => "Delete"} ) %>
+						<% end %>
+						<%= link_to page.name, site_section_page_path(section, page), :class => ( @page == page ? "active" : "inactive" ) %>
 					<% end %>
-					<%= link_to page.name, site_section_page_path(section, page), :class => ( @page == page ? "active" : "inactive" ) %>
 				<% end %>
+				</ul>
 			<% end %>
-			</ul>
 			<% if authorized? %>	
 				<% content_for :page_js do %>
 					<script type="text/javascript">
