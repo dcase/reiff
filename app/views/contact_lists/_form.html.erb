@@ -3,9 +3,11 @@
 
   <%= render :partial => 'page_sections/form_include'%>
   <h3>People:</h3>
-  <ol id="contact_list_items">
-  	<%= render :partial => 'contact_list_item', :collection => @contact_list.contact_list_items %>
-  </ol>
+  <div>
+	  <ol id="contact_list_items">
+	  	<%= render :partial => 'contact_list_item', :collection => @contact_list.contact_list_items %>
+	  </ol>
+  </div>
   <p><%= link_to_function "Add contact" do |page| 
 	page << "$('#contact_list_items').append('" + escape_javascript( render :partial => 'contact_list_item', :object => ContactListItem.new ) + "');"
 	end %></p>
