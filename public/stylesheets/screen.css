@@ -153,6 +153,7 @@ div#tagline {
 .scroll-buttons-horizontal {
 	position: relative;
 	text-align: right;
+	height: 12px;
 }
 .scroll-left {
 	position: absolute;
