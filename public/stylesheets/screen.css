@@ -151,7 +151,16 @@ div#tagline {
 	cursor: pointer;
 }
 .scroll-buttons-horizontal {
+	position: relative;
 	text-align: right;
+}
+.scroll-left {
+	position: absolute;
+	right: 14px;
+}
+.scroll-right {
+	position: absolute;
+	right: 0;
 }
 #footer h5 {
 	font-weight: normal;
