@@ -254,7 +254,8 @@ $(document).ready( function() {
 					prev.show();
 				} 
 				else {
-					$(prev,next).show();
+					$(prev).show();
+					$(next).show();
 				}
 			}
 		});
