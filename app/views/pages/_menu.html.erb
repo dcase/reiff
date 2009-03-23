@@ -50,7 +50,7 @@
 							<%= image_tag("drag_handle.png", :size => "16x16", :class => "page_drag_handle") %>
 							<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_site_section_page_path(section, page), {:title => "Edit"}) %>
 							<%= link_to(image_tag("fail.png", :size => "16x16"), site_section_page_path(section, page), { :confirm => 'Are you sure?', :method => :delete, :title => "Delete"} ) %>
-							<%= link_to image_tag('add.png', :size => "16x16", :alt => "add list"), { :controller => 'lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container', :title => "Add New List" %>
+							<%= link_to(image_tag('add.png', :size => "16x16", :alt => "add list"), { :controller => 'lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container', :title => "Add New List") if @page.content.empty? %>
 						<% end %>
 						<%= link_to page.name, site_section_page_path(section, page), :class => ( @page == page ? "active" : "inactive" ) %>
 					<% end %>
