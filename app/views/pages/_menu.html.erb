@@ -31,9 +31,6 @@
 	<% if authorized? %>
 		<%= image_tag('add.png', :size => "16x16", :alt => "Add Sub-section") %>
 		<%= link_to('Add Sub-section', { :controller => 'site_sections', :action => 'new', :parent_id => @site_section_root }, :title => "Add New Category" ) %>
-			
-		end
-		) %>
 	<% end %>
 	<ul id="section-pagemenu">
 	<% for section in @site_section_root.children %>
