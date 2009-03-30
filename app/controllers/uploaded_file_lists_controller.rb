@@ -1,9 +1,9 @@
-class FileListsController < ApplicationController
+class UploadedFileListsController < ApplicationController
   before_filter :permission
   # GET /file_lists
   # GET /file_lists.xml
   def index
-    @file_lists = FileList.find(:all)
+    @file_lists = UploadedFileList.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,7 @@ class FileListsController < ApplicationController
   # GET /file_lists/1
   # GET /file_lists/1.xml
   def show
-    @file_list = FileList.find(params[:id])
+    @file_list = UploadedFileList.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +27,7 @@ class FileListsController < ApplicationController
   def new
     @page = Page.find(params[:page_id])
     @site_section = @page.site_section
-    @file_list = FileList.new
+    @file_list = UploadedFileList.new
     @page_section = @file_list.build_page_section
     
     @file_list.file_list_items.build
@@ -41,7 +41,7 @@ class FileListsController < ApplicationController
 
   # GET /file_lists/1/edit
   def edit
-    @file_list = FileList.find(params[:id])
+    @file_list = UploadedFileList.find(params[:id])
     @page_section = @file_list.page_section
     @page = @page_section.page
     @site_section = @page.site_section
@@ -54,7 +54,7 @@ class FileListsController < ApplicationController
   # POST /file_lists
   # POST /file_lists.xml
   def create
-    @file_list = FileList.new(params[:file_list])
+    @file_list = UploadedFileList.new(params[:file_list])
     @page_section = @file_list.build_page_section(params[:page_section])
     @page = @page_section.page
     @site_section = @page.site_section
@@ -85,7 +85,7 @@ class FileListsController < ApplicationController
   # PUT /file_lists/1
   # PUT /file_lists/1.xml
   def update
-    @file_list = FileList.find(params[:id])
+    @file_list = UploadedFileList.find(params[:id])
     @page_section = @file_list.page_section
     @page = @page_section.page
     @site_section = @page.site_section
@@ -115,7 +115,7 @@ class FileListsController < ApplicationController
   # DELETE /file_lists/1
   # DELETE /file_lists/1.xml
   def destroy
-    @file_list = FileList.find(params[:id])
+    @file_list = UploadedFileList.find(params[:id])
     @page_section = @file_list.page_section
     @file_list.destroy
     @page = @page_section.page

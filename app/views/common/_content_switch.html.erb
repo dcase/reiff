@@ -11,9 +11,9 @@
 	when "Bio"
 		@bio = @page_section.content
 		render :partial => 'bios/show'
-	when "FileList"
+	when "UploadedFileList"
 		@file_list = @page_section.content
-		render :partial => 'file_lists/show'
+		render :partial => 'uploaded_file_lists/show'
 	when "ArticleList"
 		@article_list = @page_section.content
 		render :partial => 'article_lists/show'

@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
     article_list.resources :article_list_items, :collection => { :order => :post }
   end
 
-  map.resources :file_lists do |file_list|
+  map.resources :uploaded_file_lists do |file_list|
     file_list.resources :file_list_items, :collection => { :order => :post }
   end
 

@@ -1,7 +1,7 @@
 <% content_tag_for(:li, file_list_item) do %>
 	<% if authorized? %>
-		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_file_list_file_list_item_path(@file_list,file_list_item), :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
-		<%= link_to(image_tag("fail.png", :size => "16x16"), file_list_file_list_item_path(@file_list,file_list_item), :title => "Delete", :class => 'ajax-delete' )%>
+		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_uploaded_file_list_file_list_item_path(@file_list,file_list_item), :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
+		<%= link_to(image_tag("fail.png", :size => "16x16"), uploaded_file_list_file_list_item_path(@file_list,file_list_item), :title => "Delete", :class => 'ajax-delete' )%>
 	<% end %>
 	<div class="application">
 		<%= file_list_item.description %><br />

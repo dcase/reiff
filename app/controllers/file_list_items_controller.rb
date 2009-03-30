@@ -4,7 +4,7 @@ class FileListItemsController < ApplicationController
   # GET /file_list_items
   # GET /file_list_items.xml
   def index
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_items = @file_list.file_list_items.find(:all)
 
     respond_to do |format|
@@ -16,7 +16,7 @@ class FileListItemsController < ApplicationController
   # GET /file_list_items/1
   # GET /file_list_items/1.xml
   def show
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.find(params[:id])
 
     respond_to do |format|
@@ -28,7 +28,7 @@ class FileListItemsController < ApplicationController
   # GET /file_list_items/new
   # GET /file_list_items/new.xml
   def new
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.build
     
     @page_section = @file_list.page_section
@@ -44,7 +44,7 @@ class FileListItemsController < ApplicationController
 
   # GET /file_list_items/1/edit
   def edit
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.find(params[:id])
     
     @page_section = @file_list.page_section
@@ -55,7 +55,7 @@ class FileListItemsController < ApplicationController
   # POST /file_list_items
   # POST /file_list_items.xml
   def create
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.build(params[:file_list_item])
     
     @page_section = @file_list.page_section
@@ -87,7 +87,7 @@ class FileListItemsController < ApplicationController
   # PUT /file_list_items/1
   # PUT /file_list_items/1.xml
   def update
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.find(params[:id])
     
     @page_section = @file_list.page_section
@@ -119,7 +119,7 @@ class FileListItemsController < ApplicationController
   # DELETE /file_list_items/1
   # DELETE /file_list_items/1.xml
   def destroy
-    @file_list = FileList.find(params[:file_list_id])
+    @file_list = UploadedFileList.find(params[:uploaded_file_list_id])
     @file_list_item = @file_list.file_list_items.find(params[:id])
     
     file_list_item_id = @file_list_item.id

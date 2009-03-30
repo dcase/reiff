@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20090312142848) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "file_list_id"
+    t.integer  "uploaded_file_list_id"
   end
 
   create_table "list_items", :force => true do |t|

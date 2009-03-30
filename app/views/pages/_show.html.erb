@@ -46,7 +46,7 @@
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Text Content', { :controller => 'copy_texts', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Raw HTML', { :controller => 'raw_htmls', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add List', { :controller => 'lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
-			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add File List', { :controller => 'file_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
+			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add File List', { :controller => 'uploaded_file_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Article List', { :controller => 'article_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 			<li><%= image_tag 'add.png', :size => "16x16" %><%= link_to 'Add Contact List', { :controller => 'contact_lists', :action => 'new', :page_id => @page }, :class => 'modal append_page_sections_container' %></li>
 		<% end %>

@@ -1,4 +1,4 @@
-class FileList < AbstractList
+class UploadedFileList < AbstractList
   has_one :page_section, :as => :content, :dependent => :destroy
   has_many :file_list_items, :order => :position, :dependent => :destroy
   

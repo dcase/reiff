@@ -1,0 +1,15 @@
+<% if super_authorized? %>
+	<%= link_to( image_tag("fail.png", :size => "16x16"), @file_list, { :title => "Delete", :class => 'ajax-delete'}) %>
+	<%= link_to( 'delete file_list', @file_list, { :title => "Delete", :class => 'ajax-delete'}) %>
+	<br />
+<% end %>
+<% if authorized? %>
+	<%= link_to( image_tag("pencil.png", :size => "16x16"), edit_uploaded_file_list_path(@file_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s }) %>
+	<%= link_to( 'edit file_list', edit_uploaded_file_list_path(@file_list), {:title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s }) %>
+	<br />
+	<%= link_to image_tag("add.png", :size => "16x16"), new_uploaded_file_list_file_list_item_path(@file_list), :class => 'modal update_page_section_' + @page_section.id.to_s %>
+	<%= link_to "Add item", new_uploaded_file_list_file_list_item_path(@file_list), :class => 'modal update_page_section_' + @page_section.id.to_s %>
+<% end %>
+<% content_tag_for(:ul, @file_list) do %>
+	<%= render :partial => 'file_list_items/show', :collection => @file_list.file_list_items, :as => :file_list_item %>
+<% end %>
