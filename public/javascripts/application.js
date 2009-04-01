@@ -210,8 +210,8 @@ $(document).ready( function() {
 					function(data) {
 						$('#page_section_' + page_section_id)
 							.replaceWith(data)
-							.data("page_id" : page_id)
-							.data("page_section_id" : page_section_id);
+							.data("page_id", page_id)
+							.data("page_section_id", page_section_id);
 					},
 					"html"
 					);
@@ -236,8 +236,8 @@ $(document).ready( function() {
 					function(data) {
 						$('#page_section_' + page_section_id)
 							.replaceWith(data)
-							.data("page_id" : page_id)
-							.data("page_section_id" : page_section_id);
+							.data("page_id", page_id)
+							.data("page_section_id", page_section_id);
 					},
 					"html"
 					);
@@ -262,8 +262,8 @@ $(document).ready( function() {
 					function(data) {
 						$('#page_section_' + page_section_id)
 							.replaceWith(data)
-							.data("page_id" : page_id)
-							.data("page_section_id" : page_section_id);
+							.data("page_id", page_id)
+							.data("page_section_id", page_section_id);
 					},
 					"html"
 					);
@@ -291,8 +291,8 @@ $(document).ready( function() {
 					function(data) {
 						$('#page_section_' + page_section_id)
 							.replaceWith(data)
-							.data("page_id" : page_id)
-							.data("page_section_id" : page_section_id);
+							.data("page_id", page_id)
+							.data("page_section_id", page_section_id);
 					},
 					"html"
 					);
@@ -317,8 +317,8 @@ $(document).ready( function() {
 					function(data) {
 						$('#page_section_' + page_section_id)
 							.replaceWith(data)
-							.data("page_id" : page_id)
-							.data("page_section_id" : page_section_id);
+							.data("page_id", page_id)
+							.data("page_section_id", page_section_id);
 					},
 					"html"
 					);
