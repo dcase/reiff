@@ -205,7 +205,7 @@ $(document).ready( function() {
 				var page_id = $(this).parent('div').data("page_id")
 				$.post(
 						'/list_items/order', 
-						$(this).sortable('serialize')),
+						$(this).sortable('serialize'),
 						function() {
 							$.get(
 								'/page_sections/' + page_section_id,
