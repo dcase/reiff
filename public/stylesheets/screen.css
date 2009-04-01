@@ -564,9 +564,12 @@ ul#pagemenu li a.active:active {
 	width: 220px;
 	white-space: normal;
 }
+.clients-list .column-list {
+	padding-left: 45px;
+}
 .clients-list #list-container {
 	height: 275px;
-	width: 494px;
+	width: 524px;
 }
 #section-pagemenu {
 	list-style: none;

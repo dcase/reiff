@@ -1,5 +1,6 @@
 <% content_tag_for(:li, contact_list_item) do %>
 	<% if authorized? %>
+		<%= image_tag("drag_handle.png", :size => "16x16", :class => "contact_list_item_drag_handle") %>
 		<%= link_to(image_tag("pencil.png", :size => "16x16"), edit_contact_list_contact_list_item_path(@contact_list,contact_list_item), :title => "Edit", :class => 'modal update_page_section_' + @page_section.id.to_s ) %>
 		<%= link_to(image_tag("fail.png", :size => "16x16"), contact_list_contact_list_item_path(@contact_list,contact_list_item), :title => "Delete", :class => 'ajax-delete' )%>
 	<% end %>

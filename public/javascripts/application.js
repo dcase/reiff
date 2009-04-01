@@ -193,14 +193,73 @@ $(document).ready( function() {
 	// Make Admin Toolbar draggable
 	$('#admin-toolbar-container').draggable({ handle: '.admin_drag_handle'});
 	
-	// For Clients, Specialties
-	$('.column-list').livequery( function() {
+	// For Specialties
+	$('.specialties-list').livequery( function() {
 		$('ul',this).multiColumnList(12,249);
+		$('#list-container').sortable({
+			handle: '.list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				var page_section_id = $(this).parent('div').data("page_section_id");
+				var page_id = $(this).parent('div').data("page_id")
+				$.post('/list_items/order', $(this).sortable('serialize'));
+				$.get(
+					'/page_sections/' + page_section_id,
+					{"page_id": page_id},
+					function(data) {
+						$('#page_section_' + page_section_id).replaceWith(data);
+					},
+					"html"
+					);
+			} 
+		});
+	});
+	
+	// For Clients
+	$('.clients-list').livequery( function() {
+		$('ul',this).multiColumnList(12,262);
+		$('#list-container').sortable({
+			handle: '.list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				var page_section_id = $(this).parent('div').data("page_section_id");
+				var page_id = $(this).parent('div').data("page_id")
+				$.post('/list_items/order', $(this).sortable('serialize'));
+				$.get(
+					'/page_sections/' + page_section_id,
+					{"page_id": page_id},
+					function(data) {
+						$('#page_section_' + page_section_id).replaceWith(data);
+					},
+					"html"
+					);
+			} 
+		});
 	});
 	
 	// For Applications
 	$('.file_list').livequery( function() {
 		$('ul',this).multiColumnList(3,249);
+		$('#list-container').sortable({
+			handle: '.file_list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				var page_section_id = $(this).parent('div').data("page_section_id");
+				var page_id = $(this).parent('div').data("page_id")
+				$.post('/file_list_items/order', $(this).sortable('serialize'));
+				$.get(
+					'/page_sections/' + page_section_id,
+					{"page_id": page_id},
+					function(data) {
+						$('#page_section_' + page_section_id).replaceWith(data);
+					},
+					"html"
+					);
+			} 
+		});
 	});
 	
 	// For Credits
@@ -214,12 +273,14 @@ $(document).ready( function() {
 			scroll: true,
 			items: 'li',
 			update: function() {
+				var page_section_id = $(this).parent('div').data("page_section_id");
+				var page_id = $(this).parent('div').data("page_id")
 				$.post('/article_list_items/order', $(this).sortable('serialize'));
 				$.get(
-					'/page_sections/23',
-					{"page_id": 17},
+					'/page_sections/' + page_section_id,
+					{"page_id": page_id},
 					function(data) {
-						$('#page_section_23').replaceWith(data);
+						$('#page_section_' + page_section_id).replaceWith(data);
 					},
 					"html"
 					);
@@ -230,6 +291,24 @@ $(document).ready( function() {
 	// For Contact
 	$('.contact-list').livequery( function() {
 		$('ul',this).multiColumnList(3,240);
+		$('#list-container').sortable({
+			handle: '.contact_list_item_drag_handle',
+			scroll: true,
+			items: 'li',
+			update: function() {
+				var page_section_id = $(this).parent('div').data("page_section_id");
+				var page_id = $(this).parent('div').data("page_id")
+				$.post('/contact_list_items/order', $(this).sortable('serialize'));
+				$.get(
+					'/page_sections/' + page_section_id,
+					{"page_id": page_id},
+					function(data) {
+						$('#page_section_' + page_section_id).replaceWith(data);
+					},
+					"html"
+					);
+			} 
+		});
 	});
 	
 	// Horizontal scrolling

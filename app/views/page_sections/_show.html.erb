@@ -18,3 +18,8 @@
 		<% end %>
 	<% end %>
 <% end %>
+<script type="text/javascript">
+$(document).ready( function(){
+	$('#page_section_<%= @page_section.id.to_s %>').data( "page_id", "<%= @page.id.to_s %>").data("page_section_id", "<%= @page_section.id.to_s %>");
+})
+</script>
