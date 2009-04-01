@@ -15,3 +15,7 @@ div#content {
 .clients-list #list-container {
 	width: 520px;
 }
+.credits-list {
+	padding-left: 0;
+	margin-left: 50px;
+}
