@@ -562,7 +562,7 @@ ul#pagemenu li a.active:active {
 }
 .clients-list ul li {
 	width: 220px;
-	white-space: normal;
+	white-space: nowrap;
 }
 .section-clients .column-list {
 	padding-left: 45px;
