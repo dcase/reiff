@@ -203,16 +203,21 @@ $(document).ready( function() {
 			update: function() {
 				var page_section_id = $(this).parent('div').data("page_section_id");
 				var page_id = $(this).parent('div').data("page_id")
-				$.post('/list_items/order', $(this).sortable('serialize'));
-				$.get(
-					'/page_sections/' + page_section_id,
-					{"page_id": page_id},
-					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
-						$('#page_section_' + page_section_id).data("page_id", page_id).data("page_section_id", page_section_id);
-					},
-					"html"
-					);
+				$.post(
+						'/list_items/order', 
+						$(this).sortable('serialize')),
+						function() {
+							$.get(
+								'/page_sections/' + page_section_id,
+								{"page_id": page_id},
+								function(data) {
+									$('#page_section_' + page_section_id).replaceWith(data);
+									$('#page_section_' + page_section_id).data("page_id", page_id).data("page_section_id", page_section_id);
+								},
+								"html"
+								);
+						}
+				);
 			} 
 		});
 	});
