@@ -208,7 +208,10 @@ $(document).ready( function() {
 					'/page_sections/' + page_section_id,
 					{"page_id": page_id},
 					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
+						$('#page_section_' + page_section_id)
+							.replaceWith(data)
+							.data("page_id" : page_id)
+							.data("page_section_id" : page_section_id);
 					},
 					"html"
 					);
@@ -231,7 +234,10 @@ $(document).ready( function() {
 					'/page_sections/' + page_section_id,
 					{"page_id": page_id},
 					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
+						$('#page_section_' + page_section_id)
+							.replaceWith(data)
+							.data("page_id" : page_id)
+							.data("page_section_id" : page_section_id);
 					},
 					"html"
 					);
@@ -254,7 +260,10 @@ $(document).ready( function() {
 					'/page_sections/' + page_section_id,
 					{"page_id": page_id},
 					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
+						$('#page_section_' + page_section_id)
+							.replaceWith(data)
+							.data("page_id" : page_id)
+							.data("page_section_id" : page_section_id);
 					},
 					"html"
 					);
@@ -280,7 +289,10 @@ $(document).ready( function() {
 					'/page_sections/' + page_section_id,
 					{"page_id": page_id},
 					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
+						$('#page_section_' + page_section_id)
+							.replaceWith(data)
+							.data("page_id" : page_id)
+							.data("page_section_id" : page_section_id);
 					},
 					"html"
 					);
@@ -303,7 +315,10 @@ $(document).ready( function() {
 					'/page_sections/' + page_section_id,
 					{"page_id": page_id},
 					function(data) {
-						$('#page_section_' + page_section_id).replaceWith(data);
+						$('#page_section_' + page_section_id)
+							.replaceWith(data)
+							.data("page_id" : page_id)
+							.data("page_section_id" : page_section_id);
 					},
 					"html"
 					);
