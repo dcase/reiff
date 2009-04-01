@@ -29,12 +29,15 @@ jQuery.fn.submitWithAjax = function() {
 
 jQuery.fn.extend({
 	multiColumnList: function(items_in_column, column_width) {
+		parent_div = $(this).parent('div.page_section');
 		list_items = $('li', this);
 		list_items_total = list_items.length;
 		columns_count = Math.ceil(list_items_total / items_in_column);
 		column_items = new Array;
 		start_item = 0;
 		end_item = items_in_column;
+		
+		parent_div.hide();
 		
 		$(this).wrap('<div id="list-container"></div>');
 		
@@ -50,8 +53,8 @@ jQuery.fn.extend({
 		}
 		
 		$('#list-container').append('<div style="clear:both;height:0;" />');
-	
-		this.remove();
+		parent_div.show();
+		$(this).remove();
 	}
 });
 (function($) {
