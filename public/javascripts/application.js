@@ -192,6 +192,9 @@ $(document).ready( function() {
 	// Make Admin Toolbar draggable
 	$('#admin-toolbar-container').draggable({ handle: '.admin_drag_handle'});
 	
+	// Make Textile links in Announcements section of Home open in new window
+	$('p a','.announcements').attr('target','_blank');
+	
 	// For Specialties
 	$('.specialties-list').livequery( function() {
 		$('ul',this).multiColumnList(12,249);
