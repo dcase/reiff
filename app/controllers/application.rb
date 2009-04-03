@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  def bad_url_redirect
+    flash[:error] = 'That URL does not exist.'
+    redirect_to root_url
+  end
+  
   private
   
   def correct_safari_and_ie_accept_headers

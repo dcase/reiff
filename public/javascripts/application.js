@@ -322,7 +322,7 @@ $(document).ready( function() {
 	
 	// For Contact
 	$('.contact-list').livequery( function() {
-		$('ul',this).multiColumnList(3,240);
+		$('ul',this).multiColumnList(4,240);
 		$('#list-container').sortable({
 			handle: '.contact_list_item_drag_handle',
 			scroll: true,
