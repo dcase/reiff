@@ -152,7 +152,15 @@ $(document).ready( function() {
 							append_class = $.grep(class_names, function(c) {  return c.substr(0,6) == "append"});
 							if ( update_class.length > 0) {
 								update_id = update_class[0].substr(7);
+								page_id = $('#' + update_id).data('page_id');
+								page_section_id = $('#' + update_id).data('page_section_id');
 								$('#' + update_id).replaceWith(data);
+								if (typeof(page_section_id) != "undefined") {
+									$('#' + update_id).data('page_section_id', page_section_id);
+								}
+								if (typeof(page_id) != "undefined") {
+									$('#' + update_id).data('page_id', page_id);
+								}
 								$('#modal-content').html("");
 								$('#modal').jqmHide();
 							}
