@@ -584,6 +584,9 @@ ul#pagemenu li a.active:active {
 #section-pagemenu li.active {
 	color: #aa2000;
 }
+#section-pagemenu li span {
+	cursor: pointer;
+}
 #section-pagemenu li ul {
 	list-style: none;
 	margin: 10px 0;
